@@ -16,11 +16,17 @@
 
 class RegularConvexPolygon : public Containable {
     public:
+	std::vector<Point> vertices_;
         // do not modify or remove this constructor
         RegularConvexPolygon(std::vector<Point> vertices);
 
 	// do not modify or remove this accessor
         std::vector<Point> vertices();
+
+	bool containedBy(Circle &circle);
+        bool containedBy(RegularConvexPolygon &polygon);
+        bool containedBy(ReuleauxTriangle &rt);
+
 };
 
 #endif
