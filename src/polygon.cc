@@ -12,8 +12,9 @@
 #include "geom.h"
 
 RegularConvexPolygon::RegularConvexPolygon(std::vector<Point> points) {	
-//	vertices = points;	
 	
+	vertices_ = points;
+	std::cout << "printing" << std::endl;
 }
 bool RegularConvexPolygon::containedBy(Circle &circle) {
     throw "Not implemented";

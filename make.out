@@ -1,3 +1,105 @@
-src/main.cc:25:13: warning: ‘void circlePolygon(Circle, RegularConvexPolygon, bool, const char*)’ defined but not used [-Wunused-function]
- static void circlePolygon(Circle inner, RegularConvexPolygon outer, bool expected, const char *msg)
-             ^
+In file included from include/polygon.h:15:0,
+                 from src/polygon.cc:11:
+include/circle.h: In member function ‘bool Circle::intersect(Line)’:
+include/circle.h:38:15: error: ‘((Circle*)this)->Circle::center’ does not have class type
+    double p = center.x;
+               ^
+include/circle.h:39:15: error: ‘((Circle*)this)->Circle::center’ does not have class type
+    double q = center.y;
+               ^
+include/circle.h:40:15: error: cannot convert ‘Circle::radius’ from type ‘double (Circle::)()’ to type ‘double’
+    double r = radius;
+               ^
+include/circle.h: In member function ‘bool Circle::intersect(Circle)’:
+include/circle.h:69:22: error: ‘a.Circle::center’ does not have class type
+    double distance = a.center.distance(center);
+                      ^
+include/circle.h:70:31: error: invalid use of member function (did you forget the ‘()’ ?)
+    if (distance <= a.radius + radius) {  
+                               ^
+include/circle.h:70:31: error: invalid use of member function (did you forget the ‘()’ ?)
+In file included from src/main.cc:13:0:
+include/circle.h: In member function ‘bool Circle::intersect(Line)’:
+include/circle.h:38:15: error: ‘((Circle*)this)->Circle::center’ does not have class type
+    double p = center.x;
+               ^
+include/circle.h:39:15: error: ‘((Circle*)this)->Circle::center’ does not have class type
+    double q = center.y;
+               ^
+include/circle.h:40:15: error: cannot convert ‘Circle::radius’ from type ‘double (Circle::)()’ to type ‘double’
+    double r = radius;
+               ^
+include/circle.h: In member function ‘bool Circle::intersect(Circle)’:
+include/circle.h:69:22: error: ‘a.Circle::center’ does not have class type
+    double distance = a.center.distance(center);
+                      ^
+include/circle.h:70:31: error: invalid use of member function (did you forget the ‘()’ ?)
+    if (distance <= a.radius + radius) {  
+                               ^
+include/circle.h:70:31: error: invalid use of member function (did you forget the ‘()’ ?)
+In file included from src/main.cc:16:0:
+include/line.h: At global scope:
+include/line.h:8:7: error: redefinition of ‘class Line’
+ class Line {
+       ^
+In file included from include/circle.h:13:0,
+                 from src/main.cc:13:
+include/line.h:8:7: error: previous definition of ‘class Line’
+ class Line {
+       ^
+In file included from src/circle.cc:10:0:
+include/circle.h: In member function ‘bool Circle::intersect(Line)’:
+include/circle.h:38:15: error: ‘((Circle*)this)->Circle::center’ does not have class type
+    double p = center.x;
+               ^
+include/circle.h:39:15: error: ‘((Circle*)this)->Circle::center’ does not have class type
+    double q = center.y;
+               ^
+include/circle.h:40:15: error: cannot convert ‘Circle::radius’ from type ‘double (Circle::)()’ to type ‘double’
+    double r = radius;
+               ^
+include/circle.h: In member function ‘bool Circle::intersect(Circle)’:
+include/circle.h:69:22: error: ‘a.Circle::center’ does not have class type
+    double distance = a.center.distance(center);
+                      ^
+include/circle.h:70:31: error: invalid use of member function (did you forget the ‘()’ ?)
+    if (distance <= a.radius + radius) {  
+                               ^
+include/circle.h:70:31: error: invalid use of member function (did you forget the ‘()’ ?)
+In file included from include/polygon.h:15:0:
+include/circle.h: In member function ‘bool Circle::intersect(Line)’:
+include/circle.h:38:15: error: ‘((Circle*)this)->Circle::center’ does not have class type
+    double p = center.x;
+               ^
+include/circle.h:39:15: error: ‘((Circle*)this)->Circle::center’ does not have class type
+    double q = center.y;
+               ^
+include/circle.h:40:15: error: cannot convert ‘Circle::radius’ from type ‘double (Circle::)()’ to type ‘double’
+    double r = radius;
+               ^
+include/circle.h: In member function ‘bool Circle::intersect(Circle)’:
+include/circle.h:69:22: error: ‘a.Circle::center’ does not have class type
+    double distance = a.center.distance(center);
+                      ^
+include/circle.h:70:31: error: invalid use of member function (did you forget the ‘()’ ?)
+    if (distance <= a.radius + radius) {  
+                               ^
+include/circle.h:70:31: error: invalid use of member function (did you forget the ‘()’ ?)
+include/circle.h: In member function ‘bool Circle::intersect(Line)’:
+include/circle.h:38:15: error: ‘((Circle*)this)->Circle::center’ does not have class type
+    double p = center.x;
+               ^
+include/circle.h:39:15: error: ‘((Circle*)this)->Circle::center’ does not have class type
+    double q = center.y;
+               ^
+include/circle.h:40:15: error: cannot convert ‘Circle::radius’ from type ‘double (Circle::)()’ to type ‘double’
+    double r = radius;
+               ^
+include/circle.h: In member function ‘bool Circle::intersect(Circle)’:
+include/circle.h:69:22: error: ‘a.Circle::center’ does not have class type
+    double distance = a.center.distance(center);
+                      ^
+include/circle.h:70:31: error: invalid use of member function (did you forget the ‘()’ ?)
+    if (distance <= a.radius + radius) {  
+                               ^
+include/circle.h:70:31: error: invalid use of member function (did you forget the ‘()’ ?)

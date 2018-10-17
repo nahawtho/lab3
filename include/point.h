@@ -7,6 +7,7 @@
 
 #ifndef _POINT_H_
 #define _POINT_H_
+#include <cmath>
 
 class Point {
     public:
@@ -18,6 +19,13 @@ class Point {
         Point() { x = 0.0, y = 0.0; }
         Point(double dx, double dy) { x = dx; y = dy; }
         Point(const Point &p) { x = p.x; y = p.y; }
+
+// Calculate distance between points
+        double distance(Point a) {
+            double dX = x - a.x;
+            double dY = y - a.y;
+            return sqrt(pow(dX,2) + pow(dY,2));
+        }
 };
 
 #endif
