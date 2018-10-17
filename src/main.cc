@@ -36,7 +36,15 @@ static void circlePolygon(Circle inner, RegularConvexPolygon outer, bool expecte
         std::cout << "FAIL\n";
     std::cout << " " << msg << std::endl;
 }
+static void polygonPolygon(RegularConvexPolygon inner, RegularConvexPolygon outer, bool expected, const char *msg)
+{
 
+    if (inner.containedBy(outer) == expected)
+        std::cout << "PASS\n";
+    else
+        std::cout << "FAIL\n";
+    std::cout << " " << msg << std::endl;
+}
 /*static void circlePolygon(RegularConvexPolygon outer)
 //, bool expected, const char *msg)
 {
@@ -55,14 +63,28 @@ int main(int argc, char *argv[])
     circleCircle(Circle(Point(0.0, 0.0), 4.0),
 	Circle(Point(0.0, 4.0), 8.0), true, "Circle-InsideTangent-Circle: ");
 
-    std::vector<Point> points = std::vector<Point>{Point(-8.0,-8.0), Point(0.0,8.0), Point(8.0, 8.0), Point(8.0, -8.0)};
+    std::vector<Point> points = std::vector<Point>{Point(-8.0,-8.0), Point(0.0,8.0), Point(8.0, -8.0)};
     RegularConvexPolygon poly = RegularConvexPolygon(points);
 
     try { 
     circlePolygon(Circle(Point(0.0,0.0), 4.0),
-	 RegularConvexPolygon(points), true, "Circle-InsideTangent-Polygon");
+	 RegularConvexPolygon(points), false, "Circle-InsideTangent-Polygon");
    } catch (const char *msg) {std::cout << msg << std::endl;} 
 
+    try {
+    circlePolygon(Circle(Point(0.0,0.0), 2.0),
+         RegularConvexPolygon(points), true, "Circle-InsideTangent-Polygon");
+   } catch (const char *msg) {std::cout << msg << std::endl;}
+
+    try {
+    circlePolygon(Circle(Point(0.0,0.0), 4.0),
+         RegularConvexPolygon(std::vector<Point>{Point(2.0,-8.0), Point(10.0,8.0), Point(18.0, -8.0)}), false, "Circle-InsideTangent-Polygon");
+   } catch (const char *msg) {std::cout << msg << std::endl;}
+
+    try {
+    polygonPolygon(RegularConvexPolygon(points),
+         RegularConvexPolygon(std::vector<Point>{Point(2.0,-8.0), Point(10.0,8.0), Point(18.0, -8.0)}), false, "Circle-InsideTangent-Polygon");
+   } catch (const char *msg) {std::cout << msg << std::endl;}
    /*for (Point const &point: poly.vertices_){ 
 	cout << "(" << point.x << ", " << point.y << ")" << std::endl;
 	} //prints xy coordinates

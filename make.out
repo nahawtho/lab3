@@ -2,6 +2,3 @@ src/circle.cc: In member function ‘virtual bool Circle::containedBy(RegularCon
 src/circle.cc:39:23: warning: unused variable ‘point’ [-Wunused-variable]
      for (Point const &point: polygon.vertices_){
                        ^
-src/circle.cc:38:6: warning: unused variable ‘sized’ [-Wunused-variable]
-  int sized = polygon.vertices_.size();
-      ^
