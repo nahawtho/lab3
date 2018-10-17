@@ -6,9 +6,10 @@
  */
 
 #include <iostream>
-
 #include "circle.h"
 #include "geom.h"
+#undef max
+#include "polygon.h" //undef max fixes error here
 
 Circle::Circle(const Point &center, double radius) {
     center_.x = center.x;
@@ -33,6 +34,11 @@ bool Circle::containedBy(Circle &circle) {
 }
 
 bool Circle::containedBy(RegularConvexPolygon &polygon) {
+    for (Point const &point: polygon.vertices_){
+        std::cout << "(" << point.x << ", " << point.y << ")" << std::endl;
+	std::cout << polygon.vertices_.size() << std::endl;
+	std::cout << polygon.vertices_.point.x;
+        } //prints xy coordinates
     throw "Circle::containedBy(RegularConvexPolygon &polygon) Not implemented";
 }
 

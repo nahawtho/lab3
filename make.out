@@ -1,0 +1,4 @@
+src/circle.cc: In member function ‘virtual bool Circle::containedBy(RegularConvexPolygon&)’:
+src/circle.cc:40:33: error: ‘class std::vector<Point>’ has no member named ‘point’
+  std::cout << polygon.vertices_.point.x;
+                                 ^

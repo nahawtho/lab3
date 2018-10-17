@@ -13,6 +13,8 @@ using namespace std;
 #include "circle.h"
 #include "polygon.h"
 #include "point.h"
+#define min(a,b) (((a)<(b)? a:b))
+#define max(a,b) (((a)<(b)? b:a))
 //#include "line.h"
 static void circleCircle(Circle inner, Circle outer, bool expected, const char *msg)
 {
@@ -53,18 +55,18 @@ int main(int argc, char *argv[])
     circleCircle(Circle(Point(0.0, 0.0), 4.0),
 	Circle(Point(0.0, 4.0), 8.0), true, "Circle-InsideTangent-Circle: ");
 
-    std::vector<Point> points = std::vector<Point>{Point(-8.0,-8.0), Point(0.0,8.0), Point(8.0, -8.0)};
+    std::vector<Point> points = std::vector<Point>{Point(-8.0,-8.0), Point(0.0,8.0), Point(8.0, 8.0), Point(8.0, -8.0)};
     RegularConvexPolygon poly = RegularConvexPolygon(points);
 
     try { 
     circlePolygon(Circle(Point(0.0,0.0), 4.0),
-	 RegularConvexPolygon(std::vector<Point>{Point(-8.0,-8.0),
-	 Point(0.0,8.0), Point(8.0, -8.0)}), true, "Circle-InsideTangent-Polygon");
+	 RegularConvexPolygon(points), true, "Circle-InsideTangent-Polygon");
    } catch (const char *msg) {std::cout << msg << std::endl;} 
 
-   for (Point const &point: poly.vertices_){
+   /*for (Point const &point: poly.vertices_){ 
 	cout << "(" << point.x << ", " << point.y << ")" << std::endl;
 	} //prints xy coordinates
+	*/
   
 	Line l1(Point(0,2),Point(2,-2)); 
 	std::cout << l1.length() << std::endl; //length test
