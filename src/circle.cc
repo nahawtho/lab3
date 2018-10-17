@@ -34,10 +34,13 @@ bool Circle::containedBy(Circle &circle) {
 }
 
 bool Circle::containedBy(RegularConvexPolygon &polygon) {
+	int i = 0;
+	int sized = polygon.vertices_.size();
     for (Point const &point: polygon.vertices_){
-        std::cout << "(" << point.x << ", " << point.y << ")" << std::endl;
-	std::cout << polygon.vertices_.size() << std::endl;
-	std::cout << polygon.vertices_.point.x;
+        //std::cout << "(" << point.x << ", " << point.y << ")" << std::endl;
+	//std::cout << polygon.vertices_.size() << std::endl;
+	int next = i++;
+	if (polygon.vertices_[next].x) std::cout << polygon.vertices_[i].x;
         } //prints xy coordinates
     throw "Circle::containedBy(RegularConvexPolygon &polygon) Not implemented";
 }
