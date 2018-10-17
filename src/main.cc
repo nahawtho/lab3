@@ -13,7 +13,7 @@ using namespace std;
 #include "circle.h"
 #include "polygon.h"
 #include "point.h"
-#include "line.h"
+//#include "line.h"
 static void circleCircle(Circle inner, Circle outer, bool expected, const char *msg)
 {
     
