@@ -45,6 +45,15 @@ static void polygonPolygon(RegularConvexPolygon inner, RegularConvexPolygon oute
         std::cout << "FAIL\n";
     std::cout << " " << msg << std::endl;
 }
+static void polygonCircle(RegularConvexPolygon inner, Circle outer, bool expected, const char *msg)
+{
+    
+    if (inner.containedBy(outer) == expected)
+        std::cout << "PASS\n";
+    else
+        std::cout << "FAIL\n";
+    std::cout << " " << msg << std::endl;
+}
 /*static void circlePolygon(RegularConvexPolygon outer)
 //, bool expected, const char *msg)
 {
@@ -81,9 +90,14 @@ int main(int argc, char *argv[])
          RegularConvexPolygon(std::vector<Point>{Point(2.0,-8.0), Point(10.0,8.0), Point(18.0, -8.0)}), false, "Circle-InsideTangent-Polygon");
    } catch (const char *msg) {std::cout << msg << std::endl;}
 
-    try {
+    try { //hugely offset triangles
     polygonPolygon(RegularConvexPolygon(points),
-         RegularConvexPolygon(std::vector<Point>{Point(2.0,-8.0), Point(10.0,8.0), Point(18.0, -8.0)}), false, "Circle-InsideTangent-Polygon");
+         RegularConvexPolygon(std::vector<Point>{Point(12.0,-8.0), Point(20.0,8.0), Point(28.0, -8.0)}), false, "Hugely offset triangles");
+   } catch (const char *msg) {std::cout << msg << std::endl;}
+
+    try { //intersecting triangles
+    polygonPolygon(RegularConvexPolygon(points),
+         RegularConvexPolygon(std::vector<Point>{Point(-7.0,-8.0), Point(1.0,8.0), Point(11.0, -8.0)}), false, "Triangles offset by 1");
    } catch (const char *msg) {std::cout << msg << std::endl;}
    /*for (Point const &point: poly.vertices_){ 
 	cout << "(" << point.x << ", " << point.y << ")" << std::endl;
