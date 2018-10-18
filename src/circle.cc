@@ -36,9 +36,19 @@ bool Circle::containedBy(Circle &circle) {
 bool Circle::containedBy(RegularConvexPolygon &polygon) { //not fully implemented. see psuedocode.
 	int i = 0;
 	int sized = polygon.vertices_.size();
+	double centerpolyx = 0;
+	double centerpolyy = 0;
 	for (Point const &point: polygon.vertices_){
 		//std::cout << "(" << point.x << ", " << point.y << ")" << std::endl;
+		centerpolyx += point.x;
+		centerpolyy += point.y;	
+	} 
+	for (Point const &point: polygon.vertices_){
+		if(Geom::distanceBetween(Point(polygon.vertices_[i].x,polygon.vertices_[i].y)
+			, this->center()) < this->radius_) return false;
 		int next = i + 1;
+		if(Geom::distanceBetween(Point(polygon.vertices_[next].x,polygon.vertices_[next].y)
+                        , this->center()) < this->radius_) return false;
 		if (i < (sized-1)) 
 		{
 			std::cout << "i:" << i << "next:" << next << std::endl;
@@ -46,6 +56,8 @@ bool Circle::containedBy(RegularConvexPolygon &polygon) { //not fully implemente
 			Line l(Point(polygon.vertices_[i].x,polygon.vertices_[i].y),
 					Point(polygon.vertices_[next].x,polygon.vertices_[next].y));
 			i++;
+			Line cp2cc(Point((centerpolyx/sized), (centerpolyy/sized)), Point(this->center()));
+        		if (l.intersect(cp2cc)) return false;
 			if (l.intersect(*this)) return false;
 		} //prints xy coordinates
 	}

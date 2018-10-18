@@ -77,17 +77,17 @@ int main(int argc, char *argv[])
 
     try { 
     circlePolygon(Circle(Point(0.0,0.0), 4.0),
-	 RegularConvexPolygon(points), false, "Circle-InsideTangent-Polygon");
+	 RegularConvexPolygon(points), false, "Circle-is too big");
    } catch (const char *msg) {std::cout << msg << std::endl;} 
 
     try {
     circlePolygon(Circle(Point(0.0,0.0), 2.0),
-         RegularConvexPolygon(points), true, "Circle-InsideTangent-Polygon");
+         RegularConvexPolygon(points), true, "Circle-is small and inside");
    } catch (const char *msg) {std::cout << msg << std::endl;}
 
     try {
-    circlePolygon(Circle(Point(0.0,0.0), 4.0),
-         RegularConvexPolygon(std::vector<Point>{Point(2.0,-8.0), Point(10.0,8.0), Point(18.0, -8.0)}), false, "Circle-InsideTangent-Polygon");
+    circlePolygon(Circle(Point(-10.0,0.0), 4.0),
+         RegularConvexPolygon(std::vector<Point>{Point(2.0,-8.0), Point(10.0,8.0), Point(18.0, -8.0)}), false, "Circle is far away");
    } catch (const char *msg) {std::cout << msg << std::endl;}
 
     try { //hugely offset triangles
@@ -99,6 +99,12 @@ int main(int argc, char *argv[])
     polygonPolygon(RegularConvexPolygon(points),
          RegularConvexPolygon(std::vector<Point>{Point(-7.0,-8.0), Point(1.0,8.0), Point(11.0, -8.0)}), false, "Triangles offset by 1");
    } catch (const char *msg) {std::cout << msg << std::endl;}
+
+    try {
+    circlePolygon(Circle(Point(0.0,0.0), 20.0),
+         RegularConvexPolygon(points), false, "Circle-is too big and actually contains poly");
+   } catch (const char *msg) {std::cout << msg << std::endl;}
+
    /*for (Point const &point: poly.vertices_){ 
 	cout << "(" << point.x << ", " << point.y << ")" << std::endl;
 	} //prints xy coordinates
