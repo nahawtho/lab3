@@ -12,6 +12,7 @@ using namespace std;
 #include <vector>
 #include "circle.h"
 #include "polygon.h"
+#include "reuleaux.h"
 #include "point.h"
 #define min(a,b) (((a)<(b)? a:b))
 #define max(a,b) (((a)<(b)? b:a))
@@ -75,6 +76,9 @@ int main(int argc, char *argv[])
     std::vector<Point> points = std::vector<Point>{Point(-8.0,-8.0), Point(0.0,8.0), Point(8.0, -8.0)};
     RegularConvexPolygon poly = RegularConvexPolygon(points);
 
+    Point rt_pts[3] = {Point(0,2), Point(2,0), Point(-2,0)};
+    ReuleauxTriangle reuleaux = ReuleauxTriangle(rt_pts);
+
     try { 
     circlePolygon(Circle(Point(0.0,0.0), 4.0),
 	 RegularConvexPolygon(points), false, "Circle-is too big");
@@ -105,6 +109,47 @@ int main(int argc, char *argv[])
          RegularConvexPolygon(points), false, "Circle-is too big and actually contains poly");
    } catch (const char *msg) {std::cout << msg << std::endl;}
 
+   try { //intersecting triangles
+    polygonCircle(RegularConvexPolygon(points),
+         Circle(Point(0.0,0.0), 20.0), false, "Triangles offset by 1");
+   } catch (const char *msg) {std::cout << msg << std::endl;}
+
+try { //intersecting triangles
+    polygonCircle(RegularConvexPolygon(points),
+         Circle(Point(0.0,0.0), 20.0), false, "Triangles offset by 1");
+   } catch (const char *msg) {std::cout << msg << std::endl;}
+try { //intersecting triangles
+    polygonCircle(RegularConvexPolygon(points),
+         Circle(Point(0.0,0.0), 20.0), false, "Triangles offset by 1");
+   } catch (const char *msg) {std::cout << msg << std::endl;}
+try { //intersecting triangles
+    polygonCircle(RegularConvexPolygon(points),
+         Circle(Point(0.0,0.0), 20.0), false, "Triangles offset by 1");
+   } catch (const char *msg) {std::cout << msg << std::endl;}
+try { //intersecting triangles
+    polygonCircle(RegularConvexPolygon(points),
+         Circle(Point(0.0,0.0), 20.0), false, "Triangles offset by 1");
+   } catch (const char *msg) {std::cout << msg << std::endl;}
+try { //intersecting triangles
+    polygonCircle(RegularConvexPolygon(points),
+         Circle(Point(0.0,0.0), 20.0), false, "Triangles offset by 1");
+   } catch (const char *msg) {std::cout << msg << std::endl;}
+try { //intersecting triangles
+    polygonCircle(RegularConvexPolygon(points),
+         Circle(Point(0.0,0.0), 20.0), false, "Triangles offset by 1");
+   } catch (const char *msg) {std::cout << msg << std::endl;}
+try { //intersecting triangles
+    polygonCircle(RegularConvexPolygon(points),
+         Circle(Point(0.0,0.0), 20.0), false, "Triangles offset by 1");
+   } catch (const char *msg) {std::cout << msg << std::endl;}
+try { //intersecting triangles
+    polygonCircle(RegularConvexPolygon(points),
+         Circle(Point(0.0,0.0), 20.0), false, "Triangles offset by 1");
+   } catch (const char *msg) {std::cout << msg << std::endl;}
+try { //intersecting triangles
+    polygonCircle(RegularConvexPolygon(points),
+         Circle(Point(0.0,0.0), 20.0), true, "Triangles offset by 1");
+   } catch (const char *msg) {std::cout << msg << std::endl;}
    /*for (Point const &point: poly.vertices_){ 
 	cout << "(" << point.x << ", " << point.y << ")" << std::endl;
 	} //prints xy coordinates
@@ -118,3 +163,5 @@ int main(int argc, char *argv[])
 	std::cout << l1.intersect(c1) << std::endl; //expect true
 	return 0;
 }
+#undef min
+#undef max

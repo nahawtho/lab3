@@ -33,7 +33,7 @@ bool Circle::containedBy(Circle &circle) {
 	return Geom::distanceBetween(center(), circle.center()) <= (circle.radius() - radius());
 }
 
-bool Circle::containedBy(RegularConvexPolygon &polygon) { //not fully implemented. see psuedocode.
+bool Circle::containedBy(RegularConvexPolygon &polygon) { //good?
 	int i = 0;
 	int sized = polygon.vertices_.size();
 	double centerpolyx = 0;
@@ -44,11 +44,12 @@ bool Circle::containedBy(RegularConvexPolygon &polygon) { //not fully implemente
 		centerpolyy += point.y;	
 	} 
 	for (Point const &point: polygon.vertices_){
+	std::cout << "(" << point.x << ", " << point.y << ")" << std::endl;
 		if(Geom::distanceBetween(Point(polygon.vertices_[i].x,polygon.vertices_[i].y)
 			, this->center()) < this->radius_) return false;
 		int next = i + 1;
-		if(Geom::distanceBetween(Point(polygon.vertices_[next].x,polygon.vertices_[next].y)
-                        , this->center()) < this->radius_) return false;
+		//if(Geom::distanceBetween(Point(polygon.vertices_[next].x,polygon.vertices_[next].y)
+                 //       , this->center()) < this->radius_) return false;
 		if (i < (sized-1)) 
 		{
 			std::cout << "i:" << i << "next:" << next << std::endl;

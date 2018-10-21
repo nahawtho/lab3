@@ -4,10 +4,8 @@
  * You may not use, distribute, publish, or modify this code without 
  * the express written permission of the copyright holder.
  */
-
 #ifndef _CIRCLE_H_
 #define _CIRCLE_H_
-
 #include "containable.h"
 #include "point.h"
 #include "line.h"

@@ -1,18 +1,5 @@
-src/polygon.cc: In member function ‘virtual bool RegularConvexPolygon::containedBy(Circle&)’:
-src/polygon.cc:22:27: warning: unused variable ‘point’ [-Wunused-variable]
-         for (Point const &point: this->vertices_){
-                           ^
-src/polygon.cc: In member function ‘virtual bool RegularConvexPolygon::containedBy(RegularConvexPolygon&)’:
-src/polygon.cc:52:22: warning: unused variable ‘point’ [-Wunused-variable]
-    for (Point const &point: polygon.vertices_){
-                      ^
-src/polygon.cc:43:20: warning: unused variable ‘point’ [-Wunused-variable]
-  for (Point const &point: this->vertices_)
-                    ^
-src/main.cc:48:13: warning: ‘void polygonCircle(RegularConvexPolygon, Circle, bool, const char*)’ defined but not used [-Wunused-function]
- static void polygonCircle(RegularConvexPolygon inner, Circle outer, bool expected, const char *msg)
-             ^
-src/circle.cc: In member function ‘virtual bool Circle::containedBy(RegularConvexPolygon&)’:
-src/circle.cc:46:20: warning: unused variable ‘point’ [-Wunused-variable]
-  for (Point const &point: polygon.vertices_){
-                    ^
+/tmp/ccewbTNi.o: In function `ReuleauxTriangle::~ReuleauxTriangle()':
+main.cc:(.text._ZN16ReuleauxTriangleD2Ev[_ZN16ReuleauxTriangleD5Ev]+0xd): undefined reference to `vtable for ReuleauxTriangle'
+/tmp/ccGAXuPU.o: In function `ReuleauxTriangle::ReuleauxTriangle(Point const*)':
+reuleaux.cc:(.text+0x20): undefined reference to `vtable for ReuleauxTriangle'
+collect2: error: ld returned 1 exit status

@@ -15,11 +15,18 @@
 
 class ReuleauxTriangle : public Containable {
     public:
+	const Point pts[3];
+	std::vector<Point> vecpts;
+
         // do not change this constructor
         ReuleauxTriangle(const Point vertices[3]);
 	
         // do not modify or remove this accessor
         std::vector<Point> vertices();
+
+	bool containedBy(Circle &circle);
+        bool containedBy(RegularConvexPolygon &polygon);
+        bool containedBy(ReuleauxTriangle &rt);
 };
 
 #endif
