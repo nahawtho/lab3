@@ -1,5 +1,0 @@
-/tmp/ccewbTNi.o: In function `ReuleauxTriangle::~ReuleauxTriangle()':
-main.cc:(.text._ZN16ReuleauxTriangleD2Ev[_ZN16ReuleauxTriangleD5Ev]+0xd): undefined reference to `vtable for ReuleauxTriangle'
-/tmp/ccGAXuPU.o: In function `ReuleauxTriangle::ReuleauxTriangle(Point const*)':
-reuleaux.cc:(.text+0x20): undefined reference to `vtable for ReuleauxTriangle'
-collect2: error: ld returned 1 exit status
