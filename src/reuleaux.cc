@@ -7,7 +7,9 @@ ReuleauxTriangle::ReuleauxTriangle(const Point vertices[3]) {
 
 	std::vector<Point> vecpts (vertices, vertices + sizeof(*vertices)
 							/ sizeof(Point));
-	
+}
+std::vector<Point> ReuleauxTriangle::vertices(){
+	return vecpts;
 }
 
 bool ReuleauxTriangle::containedBy(Circle &circle){

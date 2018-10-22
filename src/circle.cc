@@ -69,3 +69,10 @@ bool Circle::containedBy(RegularConvexPolygon &polygon) { //good?
 bool Circle::containedBy(ReuleauxTriangle &rt) {
 	throw "Not implemented";
 }
+
+/*
+bool Circle::containedBy(ConvexPolygon &polygon) {
+    throw "Not implemented";
+}
+
+

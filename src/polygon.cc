@@ -15,6 +15,9 @@ RegularConvexPolygon::RegularConvexPolygon(std::vector<Point> points) {
 
 	vertices_ = points;
 }
+std::vector<Point> RegularConvexPolygon::vertices(){
+	return vertices_;
+}
 bool RegularConvexPolygon::containedBy(Circle &circle) {
 	int i = 0;
 	int sized = this->vertices_.size();
